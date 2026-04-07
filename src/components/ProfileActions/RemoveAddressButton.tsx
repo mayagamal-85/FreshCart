@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { toast } from "sonner";
 import { removeAddress } from "@/actions/account.actions";
@@ -11,6 +12,7 @@ type RemoveAddressButtonProps = {
 export default function RemoveAddressButton({
   addressId,
 }: RemoveAddressButtonProps) {
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   function handleRemove() {
@@ -23,16 +25,18 @@ export default function RemoveAddressButton({
       }
 
       toast.success(result.message);
+      router.refresh();
     });
   }
 
   return (
     <button
+      type="button"
       disabled={isPending}
       onClick={handleRemove}
-      className="text-sm font-medium text-red-500 hover:underline"
+      className="rounded-xl border border-red-200 px-4 py-2 text-sm font-medium text-red-500 transition hover:bg-red-50 disabled:opacity-60"
     >
-      Remove
+      {isPending ? "Removing..." : "Remove"}
     </button>
   );
 }
