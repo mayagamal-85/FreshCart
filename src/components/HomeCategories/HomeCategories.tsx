@@ -10,7 +10,7 @@ export default async function HomeCategories() {
       <div>
         <h2 className="text-2xl font-bold text-slate-900">Shop by Category</h2>
         <p className="mt-2 text-sm text-slate-500">
-          Browse our top categories from the Route API.
+          Browse our top categories.
         </p>
       </div>
 

@@ -90,7 +90,7 @@ export default function Footer() {
               <div className="space-y-3 text-sm text-[#d7dfeb]">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-[#00b207]" />
-                  <span>+1 (800) 123-4567</span>
+                  <span>+20113177422</span>
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -100,7 +100,7 @@ export default function Footer() {
 
                 <div className="flex items-start gap-2">
                   <MapPin className="mt-0.5 h-4 w-4 text-[#00b207]" />
-                  <span>123 Commerce Street, New York, NY 10001</span>
+                  <span>123 Commerce Street, cairo</span>
                 </div>
               </div>
 
