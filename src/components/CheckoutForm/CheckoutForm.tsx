@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { startCheckout } from "@/actions/account.actions";
+import { onlinePayment } from "@/actions/checkout.actions";
 
 type CheckoutFormProps = {
   cartId: string;
@@ -22,7 +22,7 @@ export default function CheckoutForm({ cartId }: CheckoutFormProps) {
     e.preventDefault();
     setIsLoading(true);
 
-    const result = await startCheckout(cartId, formData);
+    const result = await onlinePayment(cartId, formData);
 
     setIsLoading(false);
 
@@ -42,14 +42,19 @@ export default function CheckoutForm({ cartId }: CheckoutFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl bg-white p-6 shadow-sm">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-5 rounded-2xl bg-white p-6 shadow-sm"
+    >
       <div>
         <label className="mb-2 block text-sm font-medium text-slate-700">
           Details
         </label>
         <input
           value={formData.details}
-          onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+          onChange={(e) =>
+            setFormData({ ...formData, details: e.target.value })
+          }
           className="w-full rounded-lg border border-slate-200 px-4 py-3 outline-none focus:border-green-600"
           placeholder="Street, building, apartment..."
           required
